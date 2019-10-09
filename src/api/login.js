@@ -3,7 +3,7 @@ import request from '../utils/request';
 export const login = (params) => {
     return request({
         url: 'api/login/login_in',
-        method: 'POST',
+        method: 'post',
         data: params
     })
 }

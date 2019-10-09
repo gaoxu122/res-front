@@ -36,7 +36,7 @@
 <script>
     import {
         login,
-    } from '../../api/login';
+    } from '../api/login';
 
     export default {
         data: function () {
@@ -66,7 +66,7 @@
                 login(parem).then((res) => {
                     console.log(res);
                     if (res.status === 0 ) {
-                        this.$router.push('/')
+                        this.$router.push('/dashboard')
                         localStorage.setItem('token', this.ruleForm.username);
                     } else {
                         this.$notify.error({
@@ -77,21 +77,12 @@
 
 
                 });
-                // this.$refs[formName].validate((valid) => {
-                //
-                //     if (valid) {
-                //         // localStorage.setItem('ms_username', this.ruleForm.username);
-                //         this.$router.push('/');
-                //     } else {
-                //         console.log('error submit!!');
-                //         return false;
-                //     }
-                // });
+
             },
             registered() {
                 console.log("kkk")
                 localStorage.setItem('ms_username', this.ruleForm.username);
-                this.$router.push('/menu')
+                this.$router.push('/registered')
             }
         }
     }
@@ -102,7 +93,7 @@
         position: relative;
         width: 100%;
         height: 100%;
-        background-image: url(../../assets/img/login-bg.jpg);
+        background-image: url(../assets/img/login-bg.jpg);
         background-size: 100%;
     }
 

@@ -96,7 +96,7 @@
 </template>
 
 <script>
-    import {getMenuTree} from '../../api/menu';
+    import {getMenuTree} from '../../api/sys/menu';
 
     export default {
         name: 'basetable',

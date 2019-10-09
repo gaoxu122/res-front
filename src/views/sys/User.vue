@@ -23,7 +23,15 @@
                 <el-table-column prop="gmtCreate" label="创建日期" sortable width="250">
                 </el-table-column>
                 <el-table-column prop="status" label="状态" width="80">
-                    <el-tag size="medium">{{isEnable}}</el-tag>
+                    <!--<el-tag size="medium">{{isEnable}}</el-tag>-->
+                    <template slot-scope="scope">
+                        <el-popover trigger="hover" placement="top">
+                            <p>状态: {{ scope.row.isEnable ? "启用" :"禁用" }}</p>
+                            <div slot="reference" class="name-wrapper">
+                                <el-tag size="medium">{{ scope.row.isEnable ? "启用" :"禁用"}}</el-tag>
+                            </div>
+                        </el-popover>
+                    </template>
                 </el-table-column>
                 <el-table-column label="操作" width="300" align="center">
                     <template slot-scope="scope">
@@ -90,7 +98,7 @@
 </template>
 
 <script>
-    import {getUser, updateUser, deleteUser, batchDeleteUser} from '../../api/user';
+    import {getUser, updateUser, deleteUser, batchDeleteUser} from '../../api/sys/user';
 
     export default {
         name: 'basetable',
@@ -158,6 +166,8 @@
                     if (res.status === 0) {
                         this.tableData = res.data.data;
                         this.total = res.data.total;
+
+                        console.log(res.data.data.isEnable);
                         this.isEnable = res.data.isEnable ? '启用' : '禁用';
                     } else {
                         this.$notify.error({

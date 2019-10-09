@@ -51,7 +51,7 @@
 <script>
     import {
         registered,
-    } from '../../api/login';
+    } from '../api/login';
 
     export default {
         data: function () {
@@ -113,7 +113,7 @@
         position: relative;
         width: 100%;
         height: 100%;
-        background-image: url(../../assets/img/login-bg.jpg);
+        background-image: url(../assets/img/login-bg.jpg);
         background-size: 100%;
     }
 

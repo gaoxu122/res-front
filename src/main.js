@@ -23,7 +23,7 @@ const i18n = new VueI18n({
     messages
 })
 
-//使用钩子函数对路由进行权限跳转
+// 使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
     const role = localStorage.getItem('ms_username');
     console.log(role)
